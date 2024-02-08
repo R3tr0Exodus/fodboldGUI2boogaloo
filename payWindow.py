@@ -30,3 +30,5 @@ class payWindowClass:
         self.master.progressLabelText.set(f"Indsamlet: {self.master.total} af {self.master.target} kroner:")
         print(f"Indsamlet: {self.master.total} af {self.master.target} kroner!")
         self.master.progress['value'] = self.master.total / self.master.target * 100
+        ##TODO: TELL MAIN WINDOW TO PICKLE THE DICTIONARY
+        self.master.gemFilen()

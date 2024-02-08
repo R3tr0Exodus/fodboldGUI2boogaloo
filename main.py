@@ -1,6 +1,9 @@
 # importing tkinter module
+import pickle
 from tkinter import *
 from tkinter.ttk import * #progressbar
+from tkinter import messagebox
+
 
 from listWindow import listWindowClass
 from payWindow import payWindowClass
@@ -8,13 +11,31 @@ from worstWindow import worstWindowClass
 
 class mainWindow:
     def __init__(self):
-        self.total = 1200
-        self.target = 4500
+
+
+        self.total = 0
+        self.target = 1
+
         # creating tkinter window
         self.root = Tk()
 
-        #TEXT
+        #load filen:
+        self.filename = 'betalinger.pk'
+        self.fodboldtur = {}
+        try: #FILEN FINDES :)
+            infile = open(self.filename, 'rb')
+            self.fodboldtur = pickle.load(infile)
+            infile.close()
+        except: #FILEN FINDES IKKE.
+            ##TODO: open file??
+            ##TODONE: warn a brother
+            messagebox.showerror(parent=self.root, title="GWAAAAAAA", message="FILEN ER IKKE FUNDET!!")
+        print(self.fodboldtur)
+        self.total = sum(self.fodboldtur.values())
+        print(f"TOTAL: {self.total}")
 
+
+        #TEXT:
         velkomst = Label(self.root, text="Velkommen til fodboldtur GUI")
         velkomst.pack(pady=10)
 
@@ -44,6 +65,11 @@ class mainWindow:
 
         # infinite loop
         mainloop()
+    def gemFilen(self):
+        outfile = open(self.filename, 'wb')
+        pickle.dump(self.fodboldtur, outfile)
+        outfile.close()
+        print("GEMT")
 
 if __name__ == '__main__':
     main = mainWindow()
