@@ -41,7 +41,7 @@ class mainWindow:
 
         # Progress bar widget
         self.progressLabelText = StringVar()
-        self.progressLabelText.set(f"Indsamlet: {self.total} af {self.target} kroner:")
+        self.progressLabelText.set(f"Indsamlet: {int(self.total)} af {self.target} kroner:")
 
         self.progressLabel = Label(self.root, textvariable=self.progressLabelText)
         self.progressLabel.pack()
