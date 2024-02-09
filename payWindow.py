@@ -14,6 +14,7 @@ class payWindowClass:
               text="Indbetal").pack()
 
         # todone: add dropdown
+        # https://www.geeksforgeeks.org/dropdown-menus-tkinter/ samt med hjælp fra Marc
         root = self.payWindow
         clicked = StringVar()
         clicked.set("Choose")
