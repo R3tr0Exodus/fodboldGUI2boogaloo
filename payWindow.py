@@ -19,7 +19,7 @@ class payWindowClass:
         clicked = StringVar()
         clicked.set("Choose")
         names = list(master.fodboldtur.keys())
-        OptionMenu(root, clicked, *names, command=self.clicked.get()).pack()
+        OptionMenu(root, clicked, *names, command=clicked.get()).pack()
 
         self.money = Entry(self.payWindow)
         self.money.pack()
@@ -30,8 +30,7 @@ class payWindowClass:
         self.goneButton = Button(self.payWindow, text="Fjern", command=self.removeMoney)
         self.goneButton.pack(padx=30, pady=10, side=LEFT)
 
-    # todo: Add view selected payers money paid amount
-    # todo: View payers in dropdown menu
+    # todo: Add view amount already paid through selected payer
 
     def addMoney(self):
         try:

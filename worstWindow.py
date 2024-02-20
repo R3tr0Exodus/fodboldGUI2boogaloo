@@ -10,3 +10,4 @@ class worstWindowClass:
 
         Label(self.worstWindow, text="De værste betalere").pack()
 
+    # todo: Add podium for bottom 3 most payed
